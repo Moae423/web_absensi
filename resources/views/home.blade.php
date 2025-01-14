@@ -12,7 +12,7 @@
                 memastikan setiap langkah absensi diatur dengan presisi dan keamanan terjamin. Nikmati kemudahan dalam
                 mengelola waktu kerja dan produktivitas tim Anda.</p>
 
-                @if (!Auth::check())
+            @if (!Auth::check())
                 <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
                     <a href="{{ route('login') }}"
                         class="link link-hover inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
@@ -24,12 +24,11 @@
                         </svg>
                     </a>
                 </div>
-
-                @else
+            @else
                 <a href="">
                     <div class="btn btn-outline btn-info text-sm">Absen Now!</div>
                 </a>
-                @endif
+            @endif
         </div>
     </section>
 @endsection
