@@ -25,7 +25,7 @@
                     </a>
                 </div>
             @else
-                <a href="">
+                <a href="{{ route('index.attendance') }}">
                     <div class="btn btn-outline btn-info text-sm">Absen Now!</div>
                 </a>
             @endif

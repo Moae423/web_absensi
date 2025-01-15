@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\LoginRequest;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 use Illuminate\View\View;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
+use App\Http\Requests\Auth\LoginRequest;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -24,11 +25,22 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $request->authenticate();
+        try {
+            $request->authenticate();
+            $request->session()->regenerate();
 
-        $request->session()->regenerate();
+            $user = Auth::user();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+            return match ($user->role) {
+                User::ROLE_ADMIN => redirect()->intended(route('filament.admin.pages.dashboard')),
+                User::ROLE_USER => redirect()->intended(route('index.attendance')),
+                default => redirect()->intended(route('login')),
+            };
+        } catch (\Throwable $e) {
+            return redirect()
+                ->route('login')
+                ->withErrors(['email' => 'Authentication failed']);
+        }
     }
 
     /**

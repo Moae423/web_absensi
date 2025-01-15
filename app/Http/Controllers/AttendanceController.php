@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Attendance;
 use Illuminate\Http\Request;
 
 class AttendanceController extends Controller
@@ -11,6 +12,7 @@ class AttendanceController extends Controller
     {
         # code...
         $title = 'Absensi';
-        return view('karyawan.attendance', compact('title'));
+        $attendance = Attendance::latest()->first();
+        return view('karyawan.attendance', compact('title','attendance'));
     }
 }
