@@ -9,11 +9,9 @@
     <title>{{ $title }}</title>
 </head>
 <body>
-    <x-header />
-    <main class="min-h-screen">
+    <main class="min-h-screen bg-darkBlue">
         @yield('content')
     </main>
-    <x-footer />
 </body>
 <script src="./node_modules/preline/dist/preline.js"></script>
 </html>
