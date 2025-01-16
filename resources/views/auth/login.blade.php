@@ -14,7 +14,7 @@
         </div>
     @endif
 
-    <div class="hero min-h-screen  max-w-screen-lg mx-auto font-satoshi">
+    <div class="hero min-h-screen  max-w-lg mx-auto font-satoshi">
         <div class="hero-content flex-col lg:flex-row-reverse">
             <div class="text-center lg:text-left">
                 <h1 class="text-2xl md:text-5xl font-black text-green">Selamat Datang di Sistem Absensi Perusahaan</h1>
@@ -39,6 +39,7 @@
                             <input type="text" class="grow" placeholder="Email" name="email" />
                         </label>
                     </div>
+                    {{-- password --}}
                     <div class="form-control">
                         <label class="input input-bordered flex items-center gap-2">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
@@ -50,6 +51,18 @@
                             <input type="password" class="grow" name="password" placeholder="Password" />
                         </label>
                     </div>
+                    {{-- password --}}
+                    <a href="{{ route('register') }}"
+                    class="link link-info flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 21a8 8 0 0 1 13.292-6" />
+                            <circle cx="10" cy="8" r="5" />
+                            <path d="M19 16v6" />
+                            <path d="M22 19h-6" />
+                        </svg>
+                        <span class="leading-none">Belum Punya Akun?</span>
+                    </a>
                     <div class="form-control mt-6">
                         <button type="submit" class="btn btn-primary">Login</button>
                     </div>

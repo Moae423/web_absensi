@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite('resources/js/app.js', )
     @vite('resources/css/app.css')
+        <link rel="shortcut icon" href="{{ asset('image/bag_16111795.png') }}" type="image/x-icon">
     <title>{{ $title }}</title>
 </head>
 <body>
