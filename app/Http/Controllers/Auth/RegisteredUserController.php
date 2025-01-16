@@ -46,6 +46,13 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(route('login', absolute: false));
+        return redirect($this->redirectPath());
+
+    }
+
+        protected function redirectPath()
+    {
+        return '/';
     }
 }
+    
