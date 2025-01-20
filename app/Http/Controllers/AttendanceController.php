@@ -12,7 +12,6 @@ class AttendanceController extends Controller
     {
         # code...
         $title = 'Absensi';
-        $attendance = Attendance::latest()->first();
-        return view('karyawan.attendance', compact('title','attendance'));
+        return view('karyawan.attendance', compact('title'));
     }
 }
